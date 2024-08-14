@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  repotopdf:
+    image: repotopdf:latest
+    environment:
+      - REPO_URL=https://github.com/sveltejs/svelte
+    volumes:
+      - ./output:/usr/src/app/output
+    command: >
+      npm run start --
+      -u https://github.com/sveltejs/svelte
+      -o /usr/src/app/output
+      -c true
+      -p 3
+      -r false
+
